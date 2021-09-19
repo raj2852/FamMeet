@@ -2,10 +2,15 @@ const socket = io("/");
 const videoGrid = document.getElementById("video-grid");
 const myPeer = new Peer(undefined, {
 	host: "/",
-	port: "3001"
+	port: "443",
+  path: "/peerjs"
 });
+var getUserMedia = 
+navigator.getUserMedia ||
+navigator.webkitGetUserMedia ||
+navigator.mozGetUserMedia;
 const myVideo = document.createElement("video");
-myVideo.muted = true;
+myVideo.muted = false;
 const peers = {};
 navigator.mediaDevices
   .getUserMedia({
